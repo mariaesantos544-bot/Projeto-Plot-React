@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../src/assets/Logo vetorizado - claro.svg";
-
+import logo from "../assets/Logo vetorizado - claro.svg";
 
 function MenuLateral () {
     return (

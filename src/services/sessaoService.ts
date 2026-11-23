@@ -29,14 +29,22 @@ export function obterToken() {
     return sessionStorage.getItem("token");
 }
 
-export function obterUsuario() {
-    const usuario = sessionStorage.getItem("usuario");
+export interface UsuarioSessao {
+    nome: string;
+    email: string;
+    tipoUsuario: string;
+}
 
-    // JSON.parse(): tranforma o texto JSON novamente em objeto
-    // aqui nessa função validamos se o usuário existe
-    // se existir: retorna o objeto com as informações do usuário
-    // se nao: retorna null
-    return usuario ? JSON.parse(usuario) : null;
+export function obterUsuario(): UsuarioSessao | null {
+    try {
+        const usuario = sessionStorage.getItem("usuario");
+        if (!usuario || usuario === "undefined") {
+            return null;
+        }
+        return JSON.parse(usuario) as UsuarioSessao;
+    } catch {
+        return null;
+    }
 }
 
 // Limpando a sessao do navegador

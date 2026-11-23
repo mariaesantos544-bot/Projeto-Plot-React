@@ -17,7 +17,7 @@ function CardFilme({ filme }: Props) {
             </Link>
 
             <h3>{filme.titulo}</h3>
-            <p>{filme.dataLacamento.substring(0, 4)}</p>
+            <p>{filme.dataLacamento ? filme.dataLacamento.substring(0, 4) : ""}</p>
         </article>
 
     );

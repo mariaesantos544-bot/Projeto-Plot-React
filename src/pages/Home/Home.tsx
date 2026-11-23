@@ -40,7 +40,7 @@ function Home() {
         }
 
         carregarFilmes();
-    }, []);
+    }, [busca]);
 
     useEffect(() => {
 
