@@ -4,7 +4,7 @@ import "./Home.css";
 
 import MenuLateral from "../../components/MenuLateral";
 import MenuUsuario from "../../components/MenuUsuario";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Filme } from "../../types/filme";
 import type { Genero } from "../../types/genero";
 import { listarFilmes } from "../../api/filmes";
@@ -116,15 +116,25 @@ function Home() {
                     <button className="selecionado" type="button">
                         <i className="fa-solid fa-border-all"></i> Todos
                     </button>
-                    <button type="button">Ação</button>
-                    <button type="button">Aventura</button>
-                    <button type="button">Comédia</button>
-                    <button type="button">Drama</button>
-                    <button type="button">Ficção Científica</button>
-                    <button type="button">Romance</button>
-                    <button type="button">Suspense</button>
-                    <button type="button">Terror</button>
-                    <button type="button">Animação</button>
+                    {generos.length > 0 ? (
+                        generos.map((genero) => (
+                            <button key={genero.idGenero} type="button">
+                                {genero.nome}
+                            </button>
+                        ))
+                    ) : (
+                        <>
+                            <button type="button">Ação</button>
+                            <button type="button">Aventura</button>
+                            <button type="button">Comédia</button>
+                            <button type="button">Drama</button>
+                            <button type="button">Ficção Científica</button>
+                            <button type="button">Romance</button>
+                            <button type="button">Suspense</button>
+                            <button type="button">Terror</button>
+                            <button type="button">Animação</button>
+                        </>
+                    )}
                 </section>
 
                 <section className="secao-filmes">
